@@ -120,3 +120,95 @@ let logDetails: (obj: { name: string; age: number }) => void;
 logDetails = (ninja: person) => {
 	console.log(`${ninja.name} is ${ninja.age} years old`);
 };
+
+
+// 
+// if we are sure that the anchor is not null we can use ! at the end
+const anchor =  document.querySelector('a')!
+
+// if(anchor){
+//     console.log(anchor.href)
+// }
+console.log(anchor.href)
+
+class Invoice {
+    // method 1
+	readonly client:string;
+	// we cant access it outside the class itself
+	private details: string;
+	public amount:number;
+	// constructor
+	constructor(c:string,d:string,a:number){
+	// assign the global variables to the a , b ,c
+	this.client = c
+	this.details = d
+	this.amount = a
+	}
+    // method 2
+	// shortcut to the previous code
+	// constructor(
+	// 	readonly client:string,
+	// 	private details:string, 
+	// 	public amount:number
+	// ) {}
+	// method
+	format() {
+		return `${this.client} owes ${this.amount}KD for ${this.details}`;
+	}
+}
+
+
+// interface
+interface IsPerson {
+	name: string;
+	age: number;
+	speak(a: string): void;
+	spend(a: number): number;
+}
+
+
+
+const me: IsPerson = {
+	name:'Fatma',
+	age:24,
+	speak(text:string):void{
+		console.log(text)
+	},
+	spend(amount:number):number{
+		console.log('I spent',amount)
+		return amount
+	},
+
+}
+console.log(me)
+
+const greetPerson = (person:IsPerson) =>{
+	console.log('hello',person.name)
+}
+greetPerson(me)
+
+
+
+const invOne = new Invoice("Fatma", "Work on Fatma website", 200);
+// const invTwo = new Invoice("Haya", "Work on Haya website", 400);
+// // only objects created from the invoice class will be added to the array
+// let invoices: Invoice[] = [];
+// invoices.push(invOne);
+// invoices.push(invTwo);
+
+// invoices.forEach((inv) => {
+// 	//  we only can access the public ones / readonly ones
+// 	console.log(inv.client, inv.amount, inv.format());
+// });
+// let docOne: HasFormatter; // set it to an invoice
+// let docTwo: HasFormatter; // set it to an payment
+
+// docOne = new Invoice("Fatma", "Web work", 250);
+// docTwo = new Payment("Haya", "pluming Work", 200);
+
+// let docs: HasFormatter[] = [];
+
+// docs.push(docOne);
+// docs.push(docTwo);
+
+// console.log(docs);

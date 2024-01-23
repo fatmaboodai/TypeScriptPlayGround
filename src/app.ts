@@ -19,4 +19,6 @@ form.addEventListener("submit", (e: Event) => {
 	//  we it does not refresh the page once we submit
 	e.preventDefault();
 	console.log(type.value,toFrom.value,details.value,amount.valueAsNumber);
+	console.log(type.value,toFrom.value,details.value,amount.valueAsNumber);
+
 });
